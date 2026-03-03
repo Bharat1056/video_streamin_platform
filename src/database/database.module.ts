@@ -1,6 +1,7 @@
 import { Global, Module } from '@nestjs/common'
 import { neonConfig, Pool } from '@neondatabase/serverless'
 import { drizzle } from 'drizzle-orm/neon-serverless'
+import { ConfigService } from '@nestjs/config'
 import ws from 'ws'
 
 import * as schema from './schema'
@@ -14,8 +15,9 @@ neonConfig.webSocketConstructor = ws
   providers: [
     {
       provide: DRIZZLE_DB,
-      useFactory: () => {
-        const connectionString = process.env.DATABASE_URL
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => {
+        const connectionString = config.get<string>('DATABASE_URL')
         if (!connectionString) {
           throw new Error('DATABASE_URL is not defined')
         }
