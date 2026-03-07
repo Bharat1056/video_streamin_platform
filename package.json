@@ -32,6 +32,8 @@
     "@nestjs/swagger": "^11.2.6",
     "argon2": "^0.44.0",
     "drizzle-orm": "^0.45.1",
+    "ioredis": "^5.10.0",
+    "lru-cache": "^11.2.6",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "ws": "^8.19.0"
