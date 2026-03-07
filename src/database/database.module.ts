@@ -3,11 +3,10 @@ import { neonConfig, Pool } from '@neondatabase/serverless'
 import { drizzle } from 'drizzle-orm/neon-serverless'
 import { ConfigService } from '@nestjs/config'
 import ws from 'ws'
-
 import * as schema from './schema'
 
-
 export const DRIZZLE_DB = 'DRIZZLE_DB'
+
 neonConfig.webSocketConstructor = ws
 
 @Global()
