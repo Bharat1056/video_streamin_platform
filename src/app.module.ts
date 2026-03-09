@@ -5,13 +5,16 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from 'src/database/database.module';
 import { CacheModule } from 'src/infra/cache.module';
+import { RedisModule } from 'src/infra/redis.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     DatabaseModule,
+    CacheModule,
+    RedisModule,
   ],
   controllers: [AppController],
-  providers: [AppService, CacheModule],
+  providers: [AppService],
 })
 export class AppModule {}
