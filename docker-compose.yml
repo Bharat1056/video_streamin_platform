@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: vidmux_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      -  redis_data:/data
+    command: redis-server --requirepass vidmux --appendonly yes --maxmemory-policy allkeys-lru
+    restart: unless-stopped # restart container automatically if it crashes until you manually stopped it
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s   # run healthcheck every 10 seconds
+      timeout: 5s     # if command takes more than 5s → fail
+      retries: 5      # after 5 consecutive failures → container unhealthy
+
+volumes:
+    redis_data:
