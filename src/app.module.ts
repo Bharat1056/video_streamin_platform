@@ -3,9 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DatabaseModule } from 'src/database/database.module';
-import { CacheModule } from 'src/infra/cache.module';
-import { RedisModule } from 'src/infra/redis.module';
+import { DatabaseModule } from './database/database.module';
+import { CacheModule } from './infra/cache.module';
+import { RedisModule } from './infra/redis.module';
 
 @Module({
   imports: [
