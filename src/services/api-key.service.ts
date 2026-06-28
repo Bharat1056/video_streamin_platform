@@ -4,9 +4,9 @@ import { NeonDatabase } from 'drizzle-orm/neon-serverless'
 import * as crypto from 'crypto'
 import * as argon2 from 'argon2'
 
-import { DRIZZLE_DB } from 'src/database/database.module'
-import { api_key } from 'src/database/schema'
-import * as schema from 'src/database/schema'
+import { DRIZZLE_DB } from '../database/database.module'
+import { api_key } from '../database/schema'
+import * as schema from '../database/schema'
 
 const MAX_API_KEYS_LIMIT = 5
 
